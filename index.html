@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Will you be my Valentine? 💘</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background:#fff5f8; }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 24px; text-align:center; }
+    h1 { margin: 16px 0 8px; }
+    p { margin: 0 0 18px; }
+    .card { background: white; border-radius: 18px; padding: 18px; box-shadow: 0 10px 25px rgba(0,0,0,.08); }
+    img { width: 100%; border-radius: 14px; margin: 10px 0; }
+    .btns { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top: 14px; }
+    button { font-size: 18px; padding: 12px 18px; border: none; border-radius: 999px; cursor:pointer; }
+    #yes { background:#ff3b7b; color:white; }
+    #no { background:#e9e9ee; }
+    .hidden { display:none; }
+    .footer { font-size: 12px; opacity: .7; margin-top: 12px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>Will you be my Valentine? 💘</h1>
+      <p>Pick your answer, pretty please 🙂</p>
+
+      <img src="pic1.jpg" alt="Us photo 1">
+      <!-- If you want more pics, copy this line and change the filename -->
+      <!-- <img src="pic2.jpg" alt="Us photo 2"> -->
+
+      <div class="btns">
+        <button id="yes">Yes 💗</button>
+        <button id="no">No 🙃</button>
+      </div>
+
+      <div id="yesMsg" class="hidden">
+        <h2>YAYYYYY!!! 🥰💐</h2>
+        <p>Text me: “YES” 😄</p>
+      </div>
+
+      <div id="noMsg" class="hidden">
+        <h2>Nice try 😭</h2>
+        <p>The “No” button is just for decoration.</p>
+      </div>
+
+      <div class="footer">Made with love 💌</div>
+    </div>
+  </div>
+
+  <script>
+    const yes = document.getElementById("yes");
+    const no = document.getElementById("no");
+    const yesMsg = document.getElementById("yesMsg");
+    const noMsg = document.getElementById("noMsg");
+
+    yes.onclick = () => {
+      yesMsg.classList.remove("hidden");
+      noMsg.classList.add("hidden");
+      window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+    };
+
+    // Fun “No” behavior: it moves away when she tries to click it
+    no.onmouseover = () => {
+      const x = Math.random() * 220 - 110;
+      const y = Math.random() * 140 - 70;
+      no.style.transform = `translate(${x}px, ${y}px)`;
+    };
+
+    no.onclick = () => {
+      noMsg.classList.remove("hidden");
+      yesMsg.classList.add("hidden");
+    };
+  </script>
+</body>
+</html>
